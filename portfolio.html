@@ -17,7 +17,7 @@
 <style>
 :root{
   --void:       #2C0609;
-  --deep:       #fffdd0;
+  --deep:       #eedbae;
   --surface:    #FDFCF7;
   --surface-2:  #F5EFE0;
   --glass:      rgba(231,217,188,0.75);
@@ -106,7 +106,7 @@ body.menu-open .menu-link:nth-child(7){transition-delay:.44s}
 body.menu-open .menu-right{opacity:1;transform:translateY(0)}
 .mi-block{display:flex;flex-direction:column;gap:.8rem}
 .mi-label{font-family:var(--f-mono);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(253,236,234,.28)}
-.mi-val{font-family:var(--f-display);font-size:1.3rem;color:#F5EFE0;text-decoration:none;transition:color .3s;font-weight:300}
+.mi-val{font-family:var(--f-display);font-size:1.3rem;color:#F5EFE0 !important;text-decoration:none;transition:color .3s;font-weight:300}
 .mi-socials{display:flex;flex-direction:column;gap:.7rem}
 .mi-socials a{font-family:var(--f-mono);font-size:1.05rem;color:#F5EFE0;text-decoration:none;opacity:.45;transition:opacity .3s,transform .3s,color .3s;width:fit-content}
 .mi-socials a:hover{opacity:1;transform:translateX(6px);color:#EFBBB6}
@@ -136,7 +136,7 @@ a[href^="mailto:"]{color:inherit;text-decoration:none}
 .dl{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(122,24,36,0.18),transparent)}
 .dvd-sym{color:var(--gold);font-size:.9rem;opacity:.4}
 
-/* ── Gallery ── */
+/* ── GALLERY ── */
 .port-section{padding:5vh 5vw 12vh;position:relative;z-index:5}
 .gallery-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:3.5vh;flex-wrap:wrap;gap:1rem}
 .gallery-eyebrow{font-family:var(--f-mono);font-size:.82rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-3)}
@@ -241,6 +241,16 @@ footer{background:var(--void);padding:5.5vh 5vw 4.5vh;display:flex;flex-directio
   .cta-btns{flex-direction:column;align-items:center}
   .lb-close{top:1rem;right:1rem}
 }
+.founder-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block; /* This ensures the link stretches to fill the whole card */
+}
+.founder-card b {
+  color: inherit;
+  text-decoration: none;
+  display: block; /* This ensures the link stretches to fill the whole card */
+}
 </style>
 </head>
 <body>
@@ -302,6 +312,7 @@ footer{background:var(--void);padding:5.5vh 5vw 4.5vh;display:flex;flex-directio
         <span class="mi-label">Socials</span>
         <div class="mi-socials">
           <a href="https://www.instagram.com/glaze.mediaa" target="_blank" rel="noopener noreferrer">↗ Instagram</a>
+          <a href="https://www.linkedin.com/in/glaze-media-409793394" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>
         </div>
       </div>
     </div>
@@ -315,14 +326,13 @@ footer{background:var(--void);padding:5.5vh 5vw 4.5vh;display:flex;flex-directio
   <svg class="port-floater pf3" viewBox="0 0 105 105" fill="none"><rect x="8" y="8" width="89" height="89" rx="11" stroke="currentColor" stroke-width="1.4"/><line x1="38" y1="8" x2="38" y2="97" stroke="currentColor" stroke-width=".9"/><line x1="8" y1="38" x2="97" y2="38" stroke="currentColor" stroke-width=".9"/></svg>
   <svg class="port-floater pf4" viewBox="0 0 78 78" fill="none"><path d="M39 5L41.5 36.5L73 39L41.5 41.5L39 73L36.5 41.5L5 39L36.5 36.5Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
 
-  <p class="port-eyebrow reveal"><span class="port-eyebrow-line"></span><span>Creative Work</span><span class="port-eyebrow-line"></span></p>
+  <p class="port-eyebrow reveal"><span class="port-eyebrow-line"></span><span>Social Media Agency</span><span class="port-eyebrow-line"></span></p>
   <h1 class="reveal d1">Glaze <em>Media</em><br/><span class="hol">Portfolio</span></h1>
-  <p class="port-sub reveal d2">23 works of brand identity, social campaigns, and visual stories — crafted with intention, delivered with love.</p>
+  <p class="port-sub reveal d2">Social that shine, brands that grow. Helping businesses to scale their online presence.</p>
   <div class="port-meta reveal d3">
-    <span class="port-tag">Brand Identity</span>
-    <span class="port-tag">Social Media</span>
-    <span class="port-tag">Visual Storytelling</span>
-    <span class="port-tag">23 Works</span>
+    <span class="port-tag">Strategy</span>
+    <span class="port-tag">Branding</span>
+    <span class="port-tag">Campaigns</span>
   </div>
 </section>
 
@@ -344,18 +354,18 @@ footer{background:var(--void);padding:5.5vh 5vw 4.5vh;display:flex;flex-directio
     <h2 class="founders-title">Two founders.<br/>One <em>vision.</em></h2>
   </div>
   <div class="founders-grid">
-    <div class="founder-card reveal d1">
+    <div class="founder-card reveal d1"><a href="https://www.linkedin.com/in/aarya-badama-422798237">
       <div class="founder-initial">A</div>
       <div class="founder-name">Aarya Badama</div>
       <div class="founder-role">Co-Founder & Creative Director</div>
-      <p class="founder-bio">The visual heartbeat of Glaze Media. Aarya leads the aesthetic direction behind every project — from moodboards to brand identities that stop the scroll.</p>
-    </div>
-    <div class="founder-card reveal d2">
+      <p class="founder-bio">The visual heartbeat of Glaze Media. Aarya leads the aesthetic direction behind every project from moodboards to brand identities that stop the scroll.</p>
+    </a></div>
+    <div class="founder-card reveal d2"><a href="https://www.linkedin.com/in/saanvi-parmar-875741305">
       <div class="founder-initial">S</div>
       <div class="founder-name">Saanvi Parmar</div>
       <div class="founder-role">Co-Founder & Strategy Lead</div>
       <p class="founder-bio">The strategic mind that gives every beautiful brand its direction. Saanvi shapes the narrative, the content pillars, and the story that makes clients unforgettable.</p>
-    </div>
+    </a></div>
   </div>
 </div>
 
@@ -364,8 +374,8 @@ footer{background:var(--void);padding:5.5vh 5vw 4.5vh;display:flex;flex-directio
   <h2 class="reveal">Love what you see?<br/><em>Let's build something together.</em></h2>
   <p class="reveal d1">Whether you're launching a brand or levelling up an existing one, we'd love to bring your vision to life.</p>
   <div class="cta-btns reveal d2">
-    <a href="index.html#contact" class="bp"><span>Start Your Project</span><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="services.html" class="bt">Explore Services</a>
+    <a href="mailto:Glaze.mediaa@gmail.com" class="bp"><span>Start Your Project</span><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#services" class="bt">Explore Services</a>
   </div>
 </section>
 
