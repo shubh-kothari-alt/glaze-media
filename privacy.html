@@ -1,54 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Privacy Policy | Glaze Media</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="logo.png">
+<meta name="description" content="Privacy Policy for Glaze Media.">
+<meta property="og:title" content="Glaze Media — Privacy Policy">
+<meta property="og:type" content="website">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Glaze Media — Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500&family=Space+Mono:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<style>
+    body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  cursor: none;
+  /* Add these lines to disable highlighting */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+/* ══════════════════════════════════
+   DESIGN TOKENS & BASE
+══════════════════════════════════ */
+:root{
+  --void:       #2C0609;
+  --deep:       #fffdd0;
+  --surface:    #FDFCF7;
+  --surface-2:  #F5EFE0;
+  --gold:       #7A1824;
+  --gold-lt:    #A32235;
+  --gold-dk:    #4E0E17;
+  --text:       #2C0609;
+  --text-2:     rgba(44,6,9,0.75);
+  --text-3:     rgba(44,6,9,0.50);
+  --border:     rgba(122,24,36,0.18);
+  --border-sub: rgba(122,24,36,0.08);
+  --f-display:  'Cormorant Garamond', serif;
+  --f-body:     'Outfit', sans-serif;
+  --f-mono:     'Space Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--deep);color:var(--text);font-family:var(--f-body);overflow-x:hidden;cursor:none}
+body.menu-open{overflow:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--gold-dk);border-radius:2px}
+::selection{background:var(--gold);color:var(--void)}
+a[href^="mailto:"]{color:inherit;text-decoration:none}
+
+/* Noise Overlay */
+body::before{content:'';position:fixed;inset:0;z-index:800;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size:180px;mix-blend-mode:multiply;opacity:.35}
+
+/* ══════════════════════════════════
+   CURSOR & SCROLL BAR
+══════════════════════════════════ */
+#cur-r{position:fixed;pointer-events:none;z-index:10020;width:32px;height:32px;border:1px solid rgba(196,162,101,0.55);border-radius:50%;left:-100px;top:-100px;transform:translate(-50%,-50%);transition:width .35s,height .35s,background .35s,border-color .35s,opacity .3s;mix-blend-mode:normal;will-change:left,top}
+#cur-d{position:fixed;pointer-events:none;z-index:10020;width:4px;height:4px;background:var(--gold);border-radius:50%;left:-100px;top:-100px;transform:translate(-50%,-50%);will-change:left,top;transition:transform .2s}
+.ch #cur-r{width:52px;height:52px;background:rgba(196,162,101,0.06);border-color:rgba(196,162,101,0.7)}
+body.menu-open #cur-r{border-color:rgba(237,233,224,0.3);mix-blend-mode:normal}
+body.menu-open.ch #cur-r{background:rgba(237,233,224,0.05);border-color:rgba(237,233,224,0.6)}
+body.menu-open #cur-d{background:var(--surface)}
+
+#spb{position:fixed;top:0;left:0;z-index:9999;height:1.5px;width:0%;background:linear-gradient(90deg,var(--gold-dk),var(--gold-lt),var(--gold));transition:width .04s linear}
+
+/* ══════════════════════════════════
+   NAVIGATION & MENU
+══════════════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:10002;padding:1.7rem 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,253,208,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-sub);transition:background .4s,padding .4s}
+.nl{display:flex;align-items:center;gap:.9rem;text-decoration:none;flex-shrink:0;z-index:10002;position:relative}
+.nl-img{width:40px;height:40px;border-radius:50%;overflow:hidden;border:1px solid var(--border);background:var(--surface);flex-shrink:0}
+.nl-img img{width:100%;height:100%;object-fit:cover;display:block}
+.nl-brand{font-family:var(--f-display);font-size:1.35rem;font-weight:400;color:var(--text);letter-spacing:.02em;transition:color .4s}
+
+.menu-btn{background:none;border:none;cursor:none;display:flex;align-items:center;gap:.9rem;z-index:10002;position:relative}
+.menu-text{font-family:var(--f-mono);font-size:.88rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-2);transition:color .4s}
+.menu-icon{width:26px;height:9px;display:flex;flex-direction:column;justify-content:space-between}
+.menu-icon span{display:block;width:100%;height:1px;background:var(--gold);transition:transform .55s cubic-bezier(.77,0,.18,1),background .4s,width .4s;transform-origin:center center}
+.menu-icon span:first-child{width:100%}
+.menu-icon span:last-child{width:60%;margin-left:auto}
+
+body.menu-open nav{background:transparent;border-bottom-color:transparent;backdrop-filter:none;}
+body.menu-open .nl-brand{color:#F5EFE0}
+body.menu-open .menu-text{color:rgba(253,236,234,.5)}
+body.menu-open .menu-icon span{background:#F5EFE0;width:100%}
+body.menu-open .menu-icon span:nth-child(1){transform:rotate(-45deg) scaleX(1.05) translateY(-1px)}
+body.menu-open .menu-icon span:nth-child(2){transform:rotate(45deg) scaleX(1.05) translateY(1px)}
+
+#full-menu{position:fixed;inset:0;background:var(--void);z-index:10001;display:flex;align-items:center;justify-content:center;clip-path:circle(0% at 100% 0%);transition:clip-path 1.2s cubic-bezier(.77,0,.17,1);pointer-events:none;overflow:hidden}
+body.menu-open #full-menu{clip-path:circle(160% at 100% 0%);pointer-events:all}
+.menu-container{width:100%;max-width:1400px;padding:0 5vw;display:grid;grid-template-columns:1fr 280px;gap:5vw;align-items:center;position:relative;z-index:1}
+.menu-left{display:flex;flex-direction:column;gap:0}
+.menu-eyebrow{font-family:var(--f-mono);font-size:.90rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(253,236,234,.28);margin-bottom:2.5rem;display:block;opacity:0;transform:translateY(20px);transition:opacity .8s .2s,transform .8s .2s}
+body.menu-open .menu-eyebrow{opacity:1;transform:translateY(0)}
+.menu-left:hover .menu-link:not(:hover){opacity:.1;transform:translateX(-12px)}
+.menu-link{font-family:var(--f-display);font-size:clamp(3rem,7vw,7rem);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(253,236,234,0.22);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:1.8rem;opacity:0;transform:translateY(55px) rotate(2.5deg);transform-origin:left center;transition:color .5s,-webkit-text-stroke .5s,transform .65s cubic-bezier(.16,1,.3,1),opacity .5s;letter-spacing:-.01em;width:fit-content}
+.ml-num{font-family:var(--f-mono);font-size:1.1rem;font-weight:400;color:#EFBBB6;-webkit-text-stroke:0px transparent;text-transform:none;opacity:.5;transition:opacity .4s,color .4s}
+.menu-link:hover{color:#F5EFE0;-webkit-text-stroke:1px #F5EFE0;transform:translateX(30px);font-style:italic}
+.menu-link:hover .ml-num{opacity:1;color:#F4C9C4}
+body.menu-open .menu-link{opacity:1;transform:translateY(0) rotate(0deg)}
+body.menu-open .menu-link:nth-child(2){transition-delay:.13s}
+body.menu-open .menu-link:nth-child(3){transition-delay:.19s}
+body.menu-open .menu-link:nth-child(4){transition-delay:.26s}
+body.menu-open .menu-link:nth-child(5){transition-delay:.32s}
+body.menu-open .menu-link:nth-child(6){transition-delay:.38s}
+body.menu-open .menu-link:nth-child(7){transition-delay:.44s}
+.menu-right{display:flex;flex-direction:column;gap:2.8rem;opacity:0;transform:translateY(20px);transition:opacity .8s .65s,transform .8s cubic-bezier(.16,1,.3,1) .65s;border-left:1px solid rgba(210,195,160,0.15);padding-left:2.5rem}
+body.menu-open .menu-right{opacity:1;transform:translateY(0)}
+.mi-block{display:flex;flex-direction:column;gap:.8rem}
+.mi-label{font-family:var(--f-mono);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(253,236,234,.28)}
+.mi-val{font-family:var(--f-display);font-size:1.3rem;color:#F5EFE0 !important;text-decoration:none;transition:color .3s;font-weight:300}
+.mi-socials{display:flex;flex-direction:column;gap:.7rem}
+.mi-socials a{font-family:var(--f-mono);font-size:1.05rem;color:#F5EFE0;text-decoration:none;opacity:.45;transition:opacity .3s,transform .3s,color .3s;width:fit-content;letter-spacing:.05em}
+.mi-socials a:hover{opacity:1;transform:translateX(6px);color:#EFBBB6}
+
+/* ══════════════════════════════════
+   LEGAL PAGE LAYOUT
+══════════════════════════════════ */
+.legal-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 22vh 5vw 15vh;
+  position: relative;
+  z-index: 5;
+}
+
+.legal-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  font-family: var(--f-mono);
+  font-size: .90rem;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .7;
+  margin-bottom: 1.5rem;
+}
+.legal-eyebrow-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: .5;
+}
+
+.legal-header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.legal-header h1 em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+
+.last-updated {
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+  color: var(--text-3);
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-content h2 {
+  font-family: var(--f-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-top: 3.5rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.legal-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-2);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.legal-content ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.legal-content li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-2);
+  font-weight: 300;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.legal-content li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 0.8rem;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.legal-content a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122,24,36,0.3);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.legal-content a:hover {
+  color: var(--gold-lt);
+  border-color: var(--gold-lt);
+}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+footer{background:var(--void);padding:5.5vh 5vw 4.5vh;display:flex;flex-direction:column;gap:2.6rem;position:relative;z-index:5;border-top:1px solid var(--border-sub); margin-top: auto;}
+.ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
+.flo{display:flex;align-items:center;gap:.9rem}
+.fli{width:36px;height:36px;border-radius:50%;overflow:hidden;border:1px solid rgba(196,162,101,0.2);background:var(--surface)}
+.fli img{width:100%;height:100%;object-fit:cover;display:block}
+.flb{font-family:var(--f-display);font-size:1.25rem;color:rgba(237,233,224,.6);font-weight:300}
+.fnav{display:flex;gap:2rem;flex-wrap:wrap}
+.fnav a{font-family:var(--f-mono);font-size:.88rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,224,.25);text-decoration:none;transition:color .3s}
+.fnav a:hover{color:var(--gold-lt)}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:2.2rem;border-top:1px solid rgba(237,233,224,.05);flex-wrap:wrap;gap:1rem}
+.fcp{font-family:var(--f-mono);font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,233,224,.18)}
+.ftg{font-family:var(--f-display);font-style:italic;font-size:1.05rem;color:rgba(237,233,224,.18)}
+.footer-legal{display:flex;gap:1.8rem;align-items:center}
+.fbot a{color:rgba(237,233,224,.25);text-decoration:none;font-family:var(--f-mono);font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;transition:color .3s}
+.fbot a:hover{color:var(--gold-lt)}
+
+@media(max-width:960px){
+  .menu-container{grid-template-columns:1fr;gap:3.5rem;align-items:flex-start;margin-top:5vh}
+  .menu-right{flex-direction:row;gap:3rem;flex-wrap:wrap;border-left:none;padding-left:0;border-top:1px solid rgba(196,162,101,0.1);padding-top:2rem}
+  .menu-link{font-size:clamp(2.5rem,10vw,4rem);gap:1rem;-webkit-text-stroke:1px rgba(237,233,224,0.2)}
+}
+</style>
 </head>
-<body style="font-family: DM Sans, sans-serif; padding: 40px; max-width: 900px; margin: auto; line-height: 1.7;">
+<body>
 
-<h1>Privacy Policy</h1>
-<p><strong>Last Updated:</strong> 2026</p>
+<div id="cur-r"></div>
+<div id="cur-d"></div>
+<div id="spb"></div>
 
-<p>Glaze Media ("we", "our", or "us") respects your privacy and is committed to protecting any information you may provide while using our website.</p>
+<nav id="nav">
+  <a href="index.html" class="nl">
+    <div class="nl-img">
+      <img src="logo.png" alt="Glaze Media"
+        onerror="this.parentElement.innerHTML='<svg viewBox=\'0 0 42 42\' fill=\'none\'><circle cx=\'21\' cy=\'21\' r=\'19\' stroke=\'rgba(122,24,36,0.5)\' stroke-width=\'1\' stroke-dasharray=\'4 2\'/><text x=\'21\' y=\'26\' text-anchor=\'middle\' font-family=\'Georgia,serif\' font-size=\'13\' fill=\'rgba(122,24,36,0.7)\' font-style=\'italic\'>G</text></svg>'">
+    </div>
+    <span class="nl-brand">Glaze Media</span>
+  </a>
+  <button id="menu-toggle" class="menu-btn">
+    <span class="menu-text">Menu</span>
+    <div class="menu-icon"><span></span><span></span></div>
+  </button>
+</nav>
 
-<h2>1. Information We Collect</h2>
-<p>We only collect personal information that you voluntarily provide to us, including:</p>
-<ul>
-<li>Name</li>
-<li>Email address</li>
-<li>Any information shared through email communication</li>
-</ul>
+<div id="full-menu">
+  <div class="menu-container">
+    <div class="menu-left">
+      <span class="menu-eyebrow">Navigation ✦</span>
+      <a href="index.html#about" class="menu-link"><span class="ml-num">01</span> About Us</a>
+      <a href="index.html#services" class="menu-link"><span class="ml-num">02</span> Services</a>
+      <a href="index.html#process" class="menu-link"><span class="ml-num">03</span> Our Process</a>
+      <a href="portfolio.html" class="menu-link"><span class="ml-num">04</span> Portfolio</a>
+      <a href="index.html#testimonials" class="menu-link"><span class="ml-num">05</span> Reviews</a>
+      <a href="index.html#contact" class="menu-link"><span class="ml-num">06</span> Let's Talk</a>
+    </div>
+    <div class="menu-right">
+      <div class="mi-block">
+        <span class="mi-label">Get in Touch</span>
+        <a href="mailto:Glaze.mediaa@gmail.com" class="mi-val">Glaze.mediaa@gmail.com</a>
+      </div>
+      <div class="mi-block">
+        <span class="mi-label">Socials</span>
+        <div class="mi-socials">
+          <a href="https://www.instagram.com/glaze.mediaa" target="_blank" rel="noopener noreferrer">↗ Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>We do not collect sensitive personal data, financial information, or account passwords through this website.</p>
+<main class="legal-container">
+  <div class="legal-header">
+    <p class="legal-eyebrow"><span class="legal-eyebrow-line"></span><span>Legal</span><span class="legal-eyebrow-line"></span></p>
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="last-updated">Last Updated: March 2026</p>
+  </div>
 
-<h2>2. How We Use Your Information</h2>
-<p>Your information is used solely to:</p>
-<ul>
-<li>Respond to inquiries</li>
-<li>Provide services requested by you</li>
-<li>Communicate regarding projects or collaborations</li>
-</ul>
+  <div class="legal-content">
+    <p>Welcome to Glaze Media. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
 
-<h2>3. Cookies & Tracking</h2>
-<p>Currently, our website does not actively use analytics tracking tools. In the future, we may use tools such as Google Analytics to understand website traffic and improve user experience.</p>
+    <h2>1. Information We Collect</h2>
+    <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+    <ul>
+      <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
+      <li><strong>Contact Data</strong> includes email address, telephone numbers, and social media handles.</li>
+      <li><strong>Technical Data</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location, operating system and platform, and other technology on the devices you use to access this website.</li>
+      <li><strong>Usage Data</strong> includes information about how you use our website and services.</li>
+    </ul>
 
-<p>If implemented, such tools will collect non-personal information such as browser type, device information, and general geographic location.</p>
+    <h2>2. How We Collect Your Data</h2>
+    <p>We use different methods to collect data from and about you, including through:</p>
+    <ul>
+      <li><strong>Direct interactions.</strong> You may give us your Identity and Contact Data by filling in forms or by corresponding with us by post, phone, email, or otherwise. This includes personal data you provide when you request our services or send inquiries to our creative team.</li>
+      <li><strong>Automated technologies or interactions.</strong> As you interact with our website, we may automatically collect Technical Data about your equipment, browsing actions, and patterns.</li>
+    </ul>
 
-<h2>4. Data Security</h2>
-<p>We take reasonable steps to protect your personal information. However, no method of internet transmission is 100% secure.</p>
+    <h2>3. How We Use Your Data</h2>
+    <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+    <ul>
+      <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., providing branding, design, or social media management services).</li>
+      <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+      <li>Where we need to comply with a legal obligation.</li>
+    </ul>
 
-<h2>5. Third-Party Links</h2>
-<p>Our website may contain links to external platforms such as Instagram or Pinterest. We are not responsible for the privacy practices of those third-party websites.</p>
+    <h2>4. Data Security</h2>
+    <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors, and other third parties who have a business need to know. They will only process your personal data on our instructions and they are subject to a duty of confidentiality.</p>
 
-<h2>6. Your Rights</h2>
-<p>You may request access, correction, or deletion of your personal data by contacting us.</p>
+    <h2>5. Third-Party Links</h2>
+    <p>This website may include links to third-party websites, plug-ins, and applications (such as our Instagram portfolio). Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements. When you leave our website, we encourage you to read the privacy policy of every website you visit.</p>
 
-<h2>7. Contact Us</h2>
-<p>If you have any questions about this Privacy Policy, please contact:</p>
+    <h2>6. Your Legal Rights</h2>
+    <p>Under certain circumstances, you have rights under data protection laws in relation to your personal data. These include the right to:</p>
+    <ul>
+      <li>Request access to your personal data.</li>
+      <li>Request correction of your personal data.</li>
+      <li>Request erasure of your personal data.</li>
+      <li>Object to processing of your personal data.</li>
+      <li>Request restriction of processing your personal data.</li>
+      <li>Request transfer of your personal data.</li>
+      <li>Right to withdraw consent.</li>
+    </ul>
 
-<p><strong>Email:</strong> Glaze.mediaa@gmail.com</p>
-<p><strong>Business Location:</strong> India (Working Globally)</p>
+    <h2>7. Contact Us</h2>
+    <p>If you have any questions about this privacy policy or our privacy practices, please contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:Glaze.mediaa@gmail.com">Glaze.mediaa@gmail.com</a></p>
+  </div>
+</main>
 
+<footer>
+  <div class="ftop">
+    <div class="flo">
+      <div class="fli"><img src="logo2.png" alt="Glaze Media" onerror="this.parentElement.innerHTML='<svg viewBox=\'0 0 38 38\' fill=\'none\'><circle cx=\'19\' cy=\'19\' r=\'17\' stroke=\'rgba(122,24,36,.25)\' stroke-width=\'1\'/><text x=\'19\' y=\'24\' text-anchor=\'middle\' font-family=\'Georgia,serif\' font-size=\'11\' fill=\'rgba(122,24,36,.45)\' font-style=\'italic\'>G</text></svg>'"></div>
+      <span class="flb">Glaze Media</span>
+    </div>
+    <nav class="fnav">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">Process</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#testimonials">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="fbot">
+    <span class="fcp">© 2026 Glaze Media. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="privacy.html" style="color:var(--gold-lt);">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+    <span class="ftg">Crafted with love & intention ✦</span>
+  </div>
+</footer>
+
+<script>
+/* ── Custom Cursor ── */
+try{
+  var cr=document.getElementById('cur-r');
+  var cd=document.getElementById('cur-d');
+  var mx=-200,my=-200,rx=-200,ry=-200;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(cd){cd.style.left=mx+'px';cd.style.top=my+'px';}});
+  document.addEventListener('mouseover',function(e){document.body.classList.toggle('ch',!!e.target.closest('a,button'));},true);
+  (function rf(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;if(cr){cr.style.left=rx+'px';cr.style.top=ry+'px';}requestAnimationFrame(rf)})();
+}catch(e){}
+
+/* ── Fullscreen Menu ── */
+try{
+  var menuBtn=document.getElementById('menu-toggle');
+  if(menuBtn) menuBtn.addEventListener('click',function(){document.body.classList.toggle('menu-open');});
+  document.querySelectorAll('.menu-link').forEach(function(l){l.addEventListener('click',function(){document.body.classList.remove('menu-open');});});
+}catch(e){}
+
+/* ── Scroll Progress ── */
+try{
+  var spb=document.getElementById('spb');
+  if(spb) window.addEventListener('scroll',function(){var max=document.body.scrollHeight-window.innerHeight;if(max>0)spb.style.width=(window.scrollY/max*100)+'%';});
+}catch(e){}
+/* ── Anti-Copy Protection ── */
+// Disable right-click menu
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+// Disable copy events (Ctrl+C / Cmd+C)
+document.addEventListener('copy', function(e) {
+  e.preventDefault();
+});
+
+// Extra protection against text selection in older browsers
+document.addEventListener('selectstart', function(e) {
+  e.preventDefault();
+});
+</script>
 </body>
 </html>
