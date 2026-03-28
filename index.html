@@ -125,27 +125,44 @@ body.menu-open #cur-d{background:var(--text)}
 /* Studio label */
 .pl-tag {
   font-family: var(--f-mono);
-  font-size: 0.95rem; /* Made slightly larger */
+  font-size: 0.95rem;
   letter-spacing: 0.45em;
   text-transform: uppercase;
-  color: rgba(253,236,234,0.7); /* Much brighter so it's readable */
+  color: rgba(253,236,234,0.7);
   opacity: 0;
   animation: fadeUp .6s 0.4s forwards;
   margin-bottom: 2.2rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Space between text and lines */
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 5vw; /* Prevents touching the screen edges */
+  text-align: center;
+  text-indent: 0.45em; /* Fixes the optical illusion caused by letter-spacing */
 }
 
-/* Adds the aesthetic lines on either side of the text */
 .pl-tag::before, .pl-tag::after {
   content: '';
   display: block;
-  width: 50px;
+  width: 40px;
   height: 1px;
-  background: rgba(253,236,234,0.3);
+  background: rgba(253,236,234,0.4);
+  flex-shrink: 1; /* Allows the lines to shrink dynamically if space is tight */
 }
 
+/* ── Mobile adjustments for the preloader text ── */
+@media (max-width: 680px) {
+  .pl-tag {
+    font-size: 0.70rem; /* Scales text down for smaller screens */
+    letter-spacing: 0.25em; /* Reduces spacing to fit on one line */
+    text-indent: 0.25em;
+    gap: 0.6rem; /* Brings lines closer to the text */
+  }
+  .pl-tag::before, .pl-tag::after {
+    width: 20px; /* Shortens the lines on mobile */
+  }
+}
 /* Progress section */
 .pl-prog-area{display:flex;flex-direction:column;align-items:center;gap:.75rem;opacity:0;animation:fadeUp .6s 0.6s forwards}
 .pl-pct{font-family:var(--f-mono);font-size:1.15rem;color:rgba(253,236,234,0.35);letter-spacing:.3em}
